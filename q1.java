@@ -1,46 +1,23 @@
 import java.util.*;
-public class q1{
 
-    public static boolean isMonotonic(ArrayList<Integer> nums) {
-        boolean isIncreasing = true;
-        boolean isDecreasing = true;
+public class q1 {
 
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums.get(i) < nums.get(i - 1)) {
-                isIncreasing = false;
-            }
-            if (nums.get(i) > nums.get(i - 1)) {
-                isDecreasing = false;
+    public static boolean mono(ArrayList<Integer> list) {
+        int n = list.size();
+        for (int i = 1; i < n; i++) {
+            if (list.get(i) < list.get(i - 1) && list.get(i) > list.get(i - 1)) {
+                return true;
             }
         }
-
-        return isIncreasing || isDecreasing;
+        return false;
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> nums1 = new ArrayList<>();
-        nums1.add(1);
-        nums1.add(2);
-        nums1.add(3);
-        nums1.add(4);
-        nums1.add(5);
-
-        ArrayList<Integer> nums2 = new ArrayList<>();
-        nums2.add(5);
-        nums2.add(4);
-        nums2.add(3);
-        nums2.add(2);
-        nums2.add(1);
-
-        ArrayList<Integer> nums3 = new ArrayList<>();
-        nums3.add(1);
-        nums3.add(3);
-        nums3.add(2);
-        nums3.add(4);
-        nums3.add(5);
-
-        System.out.println(isMonotonic(nums1)); // true
-        System.out.println(isMonotonic(nums2)); // true
-        System.out.println(isMonotonic(nums3)); // false
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(5);
+        list.add(4);
+        list.add(3);
+        list.add(7);
+        System.out.println(mono(list));
     }
 }
